@@ -2,8 +2,11 @@ package com.example.orange.Retro;
 
 import com.example.orange.User;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -13,11 +16,15 @@ import retrofit2.http.Path;
 
 public interface RetrofitInterface
 {
-    //get users
-    @GET("api/Users1")
+    //get user by id
+    @GET("api/Users1/{id}")
     public Call <User> getUserById(@Path("id") int id);
+    //get user by id
+    @GET("api/Users1")
+    public Call <List<User>> getAllUsers();
 
     //delete user by id
+    @DELETE("api/Users1/{id}")
     public Call <User> deleteUserById(@Path("id") int id);
 
 
@@ -52,4 +59,6 @@ public interface RetrofitInterface
                                   @Field("PhoneNumber") String PhoneNumber,
                                   @Field("Age") String Age,
                                   @Field("Country") String Country);
+
+
 }
