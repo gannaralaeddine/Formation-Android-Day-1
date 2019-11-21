@@ -15,15 +15,18 @@
         android:layout_gravity="center"/>
 
     <EditText
+        android:id="@+id/mail_auth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="mail"
         />
 
     <EditText
+        android:id="@+id/password_auth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="password"
+
         />
 
     <Button
