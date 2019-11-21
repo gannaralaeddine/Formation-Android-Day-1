@@ -2,6 +2,7 @@ package com.example.orange;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -29,9 +30,14 @@ public class Sign_up extends AppCompatActivity
         agee = findViewById(R.id.age);
         countryy = findViewById(R.id.country);
 
+
+
+
+
         findViewById(R.id.sign_up).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String nom = firstName.getText().toString();
                 String prenom = lastName.getText().toString();
                 String email = mail.getText().toString();
@@ -46,8 +52,6 @@ public class Sign_up extends AppCompatActivity
                 user.setPhoneNumber(phone);
                 user.setAge(age);
                 user.setCountry(country);
-
-
 
                 ApiUtil.getServiceClass().addUser(user).enqueue(new Callback<User>() {
                     @Override
@@ -67,6 +71,24 @@ public class Sign_up extends AppCompatActivity
                     }
                 });
 
+
+
+            }
+        });
+
+        findViewById(R.id.btn_Update).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+
+            }
+        });
+
+        findViewById(R.id.btn_Users).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                startActivity(new Intent(Sign_up.this, DisplayUsers.class));
             }
         });
     }

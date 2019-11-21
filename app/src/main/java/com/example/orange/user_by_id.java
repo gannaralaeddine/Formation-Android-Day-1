@@ -78,21 +78,7 @@ public class user_by_id extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                ApiUtil.getServiceClass().getAllUsers().enqueue(new Callback<List<User>>() {
-                    @Override
-                    public void onResponse(Call<List<User>> call, Response<List<User>> response)
-                    {
-                        List <User> users = response.body();
-                        TextView infoUser = findViewById(R.id.userText);
-                        infoUser.setText("List count: " + users.size() + "\nFirst element: " + users.get(0).toString());
-                    }
 
-                    @Override
-                    public void onFailure(Call<List<User>> call, Throwable t)
-                    {
-                        Toast.makeText(user_by_id.this, "Error" , Toast.LENGTH_LONG).show();
-                    }
-                });
             }
         });
     }
